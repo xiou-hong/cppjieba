@@ -78,14 +78,14 @@ class HMMSegment: public SegmentBase {
   // sequential letters rule
   RuneStrArray::const_iterator SequentialLetterRule(RuneStrArray::const_iterator begin, RuneStrArray::const_iterator end) const {
     Rune x = begin->rune;
-    if (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z')) {
+    if (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z') || ('_' == x )) {
       begin ++;
     } else {
       return begin;
     }
     while (begin != end) {
       x = begin->rune;
-      if (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z') || ('0' <= x && x <= '9')) {
+      if (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z') || ('0' <= x && x <= '9') || ('_' == x ) {
         begin ++;
       } else {
         break;
