@@ -86,7 +86,7 @@ struct RuneStrLite {
 
 inline RuneStrLite DecodeRuneInString(const char* str, size_t len) {
   RuneStrLite rp(0, 0);
-  if (str == NULL || len == 0) {
+  if (str == NULL || len == 0 || str[0] == 0x5f) {
     return rp;
   }
   if (!(str[0] & 0x80)) { // 0xxxxxxx
